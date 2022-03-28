@@ -1,0 +1,164 @@
+/** @format */
+
+body {
+	color: blue;
+	background-color: #e0e0e0;
+}
+
+header {
+	nav {
+		color: green;
+	}
+}
+
+.skull {
+	$self: &;
+	display: flex;
+	width: 150px;
+	height: 100px;
+	margin: 5rem auto;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	border-radius: 100px;
+
+	#{&}__bone {
+		display: block;
+		position: absolute;
+		width: 20px;
+		height: 30px;
+		background: white;
+
+		&__container {
+			width: 100%;
+			height: 100%;
+			background: white;
+			display: block;
+			position: relative;
+
+			&__joint {
+				background: white;
+				width: 25px;
+				height: 25px;
+				display: block;
+				position: absolute;
+				border-radius: 100%;
+
+				&--top--left {
+					left: -10px;
+					top: -10px;
+				}
+
+				&--top--right {
+					right: -10px;
+					top: -10px;
+				}
+
+				&--bottom--left {
+					left: -10px;
+					bottom: -10px;
+				}
+
+				&--bottom--right {
+					right: -10px;
+					bottom: -10px;
+				}
+			}
+		}
+
+		&--45deg {
+			transform: rotate(45deg);
+		}
+
+		&--315deg {
+			transform: rotate(315deg);
+		}
+
+		&--top--left {
+			top: -15px;
+			left: -10px;
+		}
+
+		&--top--right {
+			top: -15px;
+			right: -10px;
+		}
+
+		&--bottom--left {
+			bottom: -15px;
+			left: -10px;
+		}
+
+		&--bottom--right {
+			bottom: -15px;
+			right: -10px;
+		}
+	}
+
+	#{&}__eye {
+		display: block;
+		width: 30px;
+		height: 45px;
+		border-radius: 100%;
+		position: relative;
+		background: black;
+		margin: 12px;
+
+		&--45deg {
+			transform: rotate(45deg);
+		}
+
+		&--315deg {
+			transform: rotate(315deg);
+		}
+	}
+
+	#{&}__teeth {
+		background: transparent;
+		position: absolute;
+		bottom: -25px;
+		width: 40%;
+		height: 20%;
+
+		&__container {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			height: 100%;
+			background-color: transparent;
+
+			&__tooth {
+				height: 100%;
+				width: 25%;
+				background: white;
+				display: block;
+			}
+		}
+	}
+
+	&--bg {
+		background: white;
+
+		#{ $self }__bone {
+			background: white;
+		}
+	}
+}
+
+.btn {
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+
+	&--neumorphism {
+		background: linear-gradient(
+			145deg,
+			#cacaca,
+			#f0f0f0
+		);
+		box-shadow: 20px 20px 60px #bebebe -20px -20px
+			60px #ffffff;
+	}
+}
