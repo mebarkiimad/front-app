@@ -23,7 +23,13 @@ const config = {
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
-					'sass-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							// Prefer `dart-sass`
+							implementation: require('sass'),
+						},
+					},
 					// 'postcss-loader',
 					// 'file-loader'
 					// 'css-loader'
@@ -101,6 +107,7 @@ const config = {
 			jQuery: 'jquery',
 			'window.jQuery': 'jquery',
 		}),
+
 		// new ESLintPlugin()
 	],
 	devtool: 'inline-source-map',

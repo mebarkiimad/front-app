@@ -1,15 +1,17 @@
 /** @format */
+@use "base/typography";
+@use "utilities/variables";
+@use "components/navbar";
+@use "base/reset";
+
+html {
+	font-size: 18px;
+}
 
 body {
-	color: blue;
 	background-color: #e0e0e0;
 }
 
-header {
-	nav {
-		color: green;
-	}
-}
 
 .skull {
 	$self: &;
@@ -146,49 +148,53 @@ header {
 		}
 	}
 }
-.container{
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
 .btn {
 	width: 100px;
 	height: 100px;
 	border-radius: 10px;
 
 	&--neumorphism {
-        position: relative;
-        -moz-box-shadow:    3px 3px 5px 6px #ccc;
-        -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-        box-shadow:         5px 5px 20px 6px #ccc;
-        border-radius: 10px;
-        background-color: transparent;
-        z-index: 0;
-        &:after{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            box-shadow:         inset 0px 0px 20px 6px #ccc;
-            top: 0;
-            left: 0;
-            border-radius: 10px;
-            background-color: transparent;
-            z-index: 1;
-        }
-        &::before{
-            content: '';
-            position: absolute;
-            width: 80%;
-            z-index: 1;
-            height: 80%;
-            box-shadow:         inset 0px 0px 20px 6px #ffffff;
-            top: 20%;
-            left: 20%;
-            border-radius: 10px;
-         
-        }
+		position: relative;
+		-moz-box-shadow: 3px 3px 5px 6px #ccc;
+		-webkit-box-shadow: 3px 3px 5px 6px #ccc;
+		box-shadow: 5px 5px 20px 6px #ccc;
+		border-radius: 10px;
+		background-color: transparent;
+		z-index: 0;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			box-shadow: inset 0px 0px 20px 6px #ccc;
+			top: 0;
+			left: 0;
+			border-radius: 10px;
+			background-color: transparent;
+			z-index: 1;
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 80%;
+			z-index: 1;
+			height: 80%;
+			box-shadow: inset 0px 0px 20px 6px #ffffff;
+			top: 20%;
+			left: 20%;
+			border-radius: 10px;
+
+		}
 	}
 }
