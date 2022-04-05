@@ -1,0 +1,10 @@
+{
+  "main": {
+    "css": "/main.css",
+    "js": "/app.bundle.js"
+  },
+  "": {
+    "html": "/index.html",
+    "json": "/manifest.json"
+  }
+}
