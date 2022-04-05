@@ -178,6 +178,7 @@ const config: Configuration &
 		bonjour: true,
 		compress: true,
 		magicHtml: true,
+		hot: true,
 		client: {
 			logging: 'info',
 			overlay: true,
