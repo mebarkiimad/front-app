@@ -13,7 +13,11 @@ import {WebpackManifestPlugin} from 'webpack-manifest-plugin'
 
 const htmlWebpackPluginOptions: HtmlWebpackPlugin.Options =
 	{
-		template: 'index.html',
+		template: path.resolve(
+			__dirname,
+			'public/index.html',
+		),
+		minify: true,
 		filename: 'index.html',
 	}
 const legacyOptions: LegacyOptions<'async'> = {
@@ -88,6 +92,21 @@ const sassOptions: SassOptions = (
 	console.log(meta)
 	return legacyOptions
 }
+const devServer: DevServerConfiguration = {
+	// contentBase: path.join(__dirname, 'dist'),
+	port: 9000,
+	historyApiFallback: true,
+	open: true,
+	bonjour: true,
+	compress: true,
+	magicHtml: true,
+	hot: true,
+	client: {
+		logging: 'info',
+		overlay: true,
+		progress: true,
+	},
+}
 const config: Configuration &
 	DevServerConfiguration = {
 	mode: 'development',
@@ -99,7 +118,7 @@ const config: Configuration &
 	},
 	output: {
 		// path: __dirname,
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'dist/scripts'),
 		filename: 'app.bundle.js',
 		publicPath: '/',
 		clean: true,
@@ -137,8 +156,20 @@ const config: Configuration &
 							sassOptions: sassOptions,
 						},
 					},
-					// 'postcss-loader',
-					// 'file-loader'
+					{
+						loader: 'postcss-loader',
+						// options: {
+						// 	postcssOptions: {
+						// 		plugins: [
+						// 			'postcss-import',
+						// 			['postcss-short', {prefix: 'x'}],
+
+						// 			// Deprecated and will be removed in the next major release
+						// 			{'postcss-nested': {preserveEmpty: true}},
+						// 		],
+						// 	},
+						// },
+					},
 				],
 			},
 
@@ -171,23 +202,11 @@ const config: Configuration &
 	},
 	plugins: plugins,
 	devtool: 'inline-source-map',
-	devServer: {
-		// contentBase: path.join(__dirname, 'dist'),
-		historyApiFallback: true,
-		open: true,
-		bonjour: true,
-		compress: true,
-		magicHtml: true,
-		hot: true,
-		client: {
-			logging: 'info',
-			overlay: true,
-			progress: true,
-		},
-	},
-
+	devServer: devServer,
+	watch: true,
 	context: __dirname,
 	target: 'web',
+	stats: 'detailed',
 }
 
 export default config

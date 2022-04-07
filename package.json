@@ -9,7 +9,7 @@
 		"watch-ts": "tsc -w",
 		"bundle": "npx browserify src/app.js -o dist/bundle.js",
 		"watch": "npx concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\"",
-		"start": "webpack serve --config webpack.config.ts --port 9000 ",
+		"start": "webpack serve --config webpack.config.ts",
 		"lint": "eslint . --ext .ts",
 		"debug": "SET DEBUG=* && npm run start",
 		"test": "mocha -r ts-node/register tests/**/*.test.ts",
@@ -35,6 +35,7 @@
 		"assets-webpack-plugin": "^7.1.1",
 		"babel-loader": "^8.2.2",
 		"css-loader": "^5.2.7",
+		"cssnano": "^5.1.7",
 		"eslint": "^8.12.0",
 		"eslint-config-google": "^0.14.0",
 		"extract-loader": "^5.1.0",
@@ -54,7 +55,9 @@
 		"webpack-nano": "^1.1.1"
 	},
 	"dependencies": {
+		"autoprefixer": "^10.4.4",
 		"jquery": "^3.6.0",
+		"postcss-nested": "^5.0.6",
 		"postcss-scss": "^4.0.3",
 		"sass": "1.49.9",
 		"sass-loader": "12.6.0",
@@ -62,5 +65,5 @@
 	},
 	"resolutions": {
 		"@types/webpack": "^4.4.11"
-	  }
+	}
 }
